@@ -9,6 +9,7 @@ namespace ClientZakaz.Models
 {
     public class ZakazModel
     {
+        public int Id { get; set; }
         public string Username { get; set; }
         public string Profession { get; set; }
         public string Text { get; set; }
@@ -17,8 +18,6 @@ namespace ClientZakaz.Models
         public string City { get; set; }
         public string Street { get; set; }
         public string Flat { get; set; }
-        public int Id { get; set; }
-
 
         public ZakazModel (int id, string username = "default", string profession = "<?>", string text = "<?>", int price = 0, bool isActive = false, string city = "<?>", string street = "<?>", string flat = "<?>")
         {

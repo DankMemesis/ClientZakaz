@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxProfession = new System.Windows.Forms.TextBox();
             this.textBoxText = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
@@ -44,8 +45,19 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Confirm = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.zakazModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._columnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnProfession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnStreet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnFlat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zakazModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxProfession
@@ -173,17 +185,98 @@
             this.Confirm.TabIndex = 14;
             this.Confirm.Text = "Сформировать заказ";
             this.Confirm.UseVisualStyleBackColor = true;
+            this.Confirm.Click += new System.EventHandler(this.Confirm_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(406, 12);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._columnId,
+            this._columnUsername,
+            this._columnProfession,
+            this._columnText,
+            this._columnPrice,
+            this._columnCity,
+            this._columnStreet,
+            this._columnFlat,
+            this._columnIsActive});
+            this.dataGridView1.DataSource = this.zakazModelBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(357, 22);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(382, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(431, 416);
             this.dataGridView1.TabIndex = 15;
             // 
-            // Form1
+            // zakazModelBindingSource
+            // 
+            this.zakazModelBindingSource.DataSource = typeof(ClientZakaz.Models.ZakazModel);
+            // 
+            // _columnId
+            // 
+            this._columnId.DataPropertyName = "Id";
+            this._columnId.HeaderText = "Id";
+            this._columnId.Name = "_columnId";
+            this._columnId.ReadOnly = true;
+            // 
+            // _columnUsername
+            // 
+            this._columnUsername.DataPropertyName = "Username";
+            this._columnUsername.HeaderText = "Username";
+            this._columnUsername.Name = "_columnUsername";
+            this._columnUsername.ReadOnly = true;
+            // 
+            // _columnProfession
+            // 
+            this._columnProfession.DataPropertyName = "Profession";
+            this._columnProfession.HeaderText = "Profession";
+            this._columnProfession.Name = "_columnProfession";
+            this._columnProfession.ReadOnly = true;
+            // 
+            // _columnText
+            // 
+            this._columnText.DataPropertyName = "Text";
+            this._columnText.HeaderText = "Text";
+            this._columnText.Name = "_columnText";
+            this._columnText.ReadOnly = true;
+            // 
+            // _columnPrice
+            // 
+            this._columnPrice.DataPropertyName = "Price";
+            this._columnPrice.HeaderText = "Price";
+            this._columnPrice.Name = "_columnPrice";
+            this._columnPrice.ReadOnly = true;
+            // 
+            // _columnCity
+            // 
+            this._columnCity.DataPropertyName = "City";
+            this._columnCity.HeaderText = "City";
+            this._columnCity.Name = "_columnCity";
+            this._columnCity.ReadOnly = true;
+            // 
+            // _columnStreet
+            // 
+            this._columnStreet.DataPropertyName = "Street";
+            this._columnStreet.HeaderText = "Street";
+            this._columnStreet.Name = "_columnStreet";
+            this._columnStreet.ReadOnly = true;
+            // 
+            // _columnFlat
+            // 
+            this._columnFlat.DataPropertyName = "Flat";
+            this._columnFlat.HeaderText = "Flat";
+            this._columnFlat.Name = "_columnFlat";
+            this._columnFlat.ReadOnly = true;
+            // 
+            // _columnIsActive
+            // 
+            this._columnIsActive.DataPropertyName = "IsActive";
+            this._columnIsActive.HeaderText = "IsActive";
+            this._columnIsActive.Name = "_columnIsActive";
+            this._columnIsActive.ReadOnly = true;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -202,11 +295,12 @@
             this.Controls.Add(this.textBoxText);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zakazModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +324,15 @@
         private GroupBox groupBox2;
         private Button Confirm;
         private DataGridView dataGridView1;
+        private BindingSource zakazModelBindingSource;
+        private DataGridViewTextBoxColumn _columnId;
+        private DataGridViewTextBoxColumn _columnUsername;
+        private DataGridViewTextBoxColumn _columnProfession;
+        private DataGridViewTextBoxColumn _columnText;
+        private DataGridViewTextBoxColumn _columnPrice;
+        private DataGridViewTextBoxColumn _columnCity;
+        private DataGridViewTextBoxColumn _columnStreet;
+        private DataGridViewTextBoxColumn _columnFlat;
+        private DataGridViewCheckBoxColumn _columnIsActive;
     }
 }
