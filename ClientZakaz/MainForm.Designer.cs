@@ -45,7 +45,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Confirm = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.zakazModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._columnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnProfession = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +54,9 @@
             this._columnStreet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnFlat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.zakazModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Previous = new System.Windows.Forms.Button();
+            this.Next = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zakazModelBindingSource)).BeginInit();
@@ -179,9 +181,9 @@
             // 
             // Confirm
             // 
-            this.Confirm.Location = new System.Drawing.Point(118, 405);
+            this.Confirm.Location = new System.Drawing.Point(56, 405);
             this.Confirm.Name = "Confirm";
-            this.Confirm.Size = new System.Drawing.Size(173, 23);
+            this.Confirm.Size = new System.Drawing.Size(133, 23);
             this.Confirm.TabIndex = 14;
             this.Confirm.Text = "Сформировать заказ";
             this.Confirm.UseVisualStyleBackColor = true;
@@ -208,10 +210,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(431, 416);
             this.dataGridView1.TabIndex = 15;
-            // 
-            // zakazModelBindingSource
-            // 
-            this.zakazModelBindingSource.DataSource = typeof(ClientZakaz.Models.ZakazModel);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // _columnId
             // 
@@ -276,11 +275,37 @@
             this._columnIsActive.Name = "_columnIsActive";
             this._columnIsActive.ReadOnly = true;
             // 
+            // zakazModelBindingSource
+            // 
+            this.zakazModelBindingSource.DataSource = typeof(ClientZakaz.Models.ZakazModel);
+            // 
+            // Previous
+            // 
+            this.Previous.Location = new System.Drawing.Point(195, 405);
+            this.Previous.Name = "Previous";
+            this.Previous.Size = new System.Drawing.Size(75, 23);
+            this.Previous.TabIndex = 16;
+            this.Previous.Text = "Пред.";
+            this.Previous.UseVisualStyleBackColor = true;
+            this.Previous.Click += new System.EventHandler(this.Previous_Click);
+            // 
+            // Next
+            // 
+            this.Next.Location = new System.Drawing.Point(276, 405);
+            this.Next.Name = "Next";
+            this.Next.Size = new System.Drawing.Size(75, 23);
+            this.Next.TabIndex = 17;
+            this.Next.Text = "След.";
+            this.Next.UseVisualStyleBackColor = true;
+            this.Next.Click += new System.EventHandler(this.Next_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Next);
+            this.Controls.Add(this.Previous);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Confirm);
             this.Controls.Add(this.label6);
@@ -334,5 +359,7 @@
         private DataGridViewTextBoxColumn _columnStreet;
         private DataGridViewTextBoxColumn _columnFlat;
         private DataGridViewCheckBoxColumn _columnIsActive;
+        private Button Previous;
+        private Button Next;
     }
 }
